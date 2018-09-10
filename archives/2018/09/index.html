@@ -218,10 +218,6 @@
             
              
              
-                        <a href="/2018/09/10/live2d/">live2d</a>
-                        <br>
-            
-             
                         <a href="/2018/09/10/hello-world/">Hello World</a>
                         <br>
             
@@ -282,12 +278,6 @@
             
             <li class="list-group-item">
                 <span class="post-title">
-                    <a href="/2018/09/10/live2d/">live2d</a>
-                </span>
-            </li>
-            
-            <li class="list-group-item">
-                <span class="post-title">
                     <a href="/2018/09/10/hello-world/">Hello World</a>
                 </span>
             </li>
@@ -326,7 +316,7 @@
             <div class="tab-content">
                 <div class="cloud-tags tab-pane nav bs-sidenav fade" id="sidebar-tags">
     
-    <a href="/tags/初音ミク/" style="font-size: 11.974905789116708px;" class="tag-cloud-link">初音ミク</a>
+    <a href="/tags/初音ミク/" style="font-size: 10.722802330432572px;" class="tag-cloud-link">初音ミク</a>
     
 </div>
                 <div class="friend-links tab-pane nav bs-sidenav fade" id="sidebar-friend-links">
@@ -386,6 +376,34 @@
 	</script>
     <div class="container">
         Copyright © 2018 氷咲 Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>.&nbsp;Theme by <a href="https://github.com/ZEROKISEKI" target="_blank">AONOSORA</a>
+        </script>
+        <center>
+		<span id="showsectime" style="color:#00FFFF;"></span>
+		<script type="text/javascript">
+		function NewDate(str) { 
+		str = str.split('-'); 
+		var date = new Date(); 
+		date.setUTCFullYear(str[0], str[1] - 1, str[2]); 
+		date.setUTCHours(0, 0, 0, 0); 
+		return date; 
+		} 
+		function showsectime() {
+		var birthDay =NewDate("2018-8-8");
+		var today=new Date();
+		var timeold=today.getTime()-birthDay.getTime();
+		var sectimeold=timeold/1000
+		var secondsold=Math.floor(sectimeold);
+		var msPerDay=24*60*60*1000; var e_daysold=timeold/msPerDay;
+		var daysold=Math.floor(e_daysold);
+		var e_hrsold=(daysold-e_daysold)*-24;
+		var hrsold=Math.floor(e_hrsold);
+		var e_minsold=(hrsold-e_hrsold)*-60;
+		var minsold=Math.floor((hrsold-e_hrsold)*-60); var seconds=Math.floor((minsold-e_minsold)*-60).toString();
+		document.getElementById("showsectime").innerHTML = "本站已安全运行"+daysold+"天"+hrsold+"小时"+minsold+"分"+seconds+"秒";
+		setTimeout(showsectime, 1000);
+		}showsectime();
+		</script>
+		<strong/>
     </div>
 </footer>
 
