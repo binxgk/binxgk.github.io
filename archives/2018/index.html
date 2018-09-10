@@ -12,7 +12,7 @@
     
     
     
-    <title>archive_a | 众神的遗骸</title>
+    <title>archive_a | 冰之森</title>
     <link href=”http://binxgk.coding.me“ rel=”prefetch” />
     <link rel="icon" type="image/x-icon" href="">
 
@@ -101,7 +101,7 @@
                     }
                 </style>
                 <!-- 这里使用文字(navbar_text or config.title) -->
-                <div class="navbar-brand">众神的遗骸</div>
+                <div class="navbar-brand">冰之森</div>
                 
             </a>
         </div>
@@ -187,7 +187,7 @@
                     <article class="article well article-body" id="article-archive">
     <div class="breadcrumb">
         <i class="fa fa-home"></i>
-        <a href="http://binxgk.coding.me">众神的遗骸</a>
+        <a href="http://binxgk.coding.me">冰之森</a>
         >
         <span>归档</span>
     </div>
@@ -218,11 +218,15 @@
             
              
              
-                        <a href="/2018/08/31/初音公主生日快乐/">初音ミク生日快乐</a>
+                        <a href="/2018/09/10/live2d/">live2d</a>
                         <br>
             
              
-                        <a href="/2018/08/30/hello-world/">Hello World</a>
+                        <a href="/2018/09/10/hello-world/">Hello World</a>
+                        <br>
+            
+             
+                        <a href="/2018/08/31/初音公主生日快乐/">初音ミク生日快乐</a>
                         <br>
             
              
@@ -278,13 +282,19 @@
             
             <li class="list-group-item">
                 <span class="post-title">
-                    <a href="/2018/08/31/初音公主生日快乐/">初音ミク生日快乐</a>
+                    <a href="/2018/09/10/live2d/">live2d</a>
                 </span>
             </li>
             
             <li class="list-group-item">
                 <span class="post-title">
-                    <a href="/2018/08/30/hello-world/">Hello World</a>
+                    <a href="/2018/09/10/hello-world/">Hello World</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2018/08/31/初音公主生日快乐/">初音ミク生日快乐</a>
                 </span>
             </li>
             
@@ -316,7 +326,7 @@
             <div class="tab-content">
                 <div class="cloud-tags tab-pane nav bs-sidenav fade" id="sidebar-tags">
     
-    <a href="/tags/初音ミク/" style="font-size: 10.269448324347653px;" class="tag-cloud-link">初音ミク</a>
+    <a href="/tags/初音ミク/" style="font-size: 16.222324434804072px;" class="tag-cloud-link">初音ミク</a>
     
 </div>
                 <div class="friend-links tab-pane nav bs-sidenav fade" id="sidebar-friend-links">
@@ -358,6 +368,22 @@
         </div>
     </div>
     <footer id="gal-footer">
+    <link rel="stylesheet" href="/live2d/css/live2d.css" />
+	<div id="landlord">
+	    <div class="message" style="opacity:0"></div>
+	    <canvas id="live2d" width="280" height="250" class="live2d"></canvas>
+	    <div class="hide-button">隐藏</div>
+	</div>
+	<script type="text/javascript" src="https://cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
+	<script type="text/javascript">
+	    var message_Path = '/live2d/'
+	    var home_Path = 'http://binxgk.coding.me/'
+	</script>
+	<script type="text/javascript" src="/live2d/js/live2d.js"></script>
+	<script type="text/javascript" src="/live2d/js/message.js"></script>
+	<script type="text/javascript">
+	    loadlive2d("live2d", "/live2d/model/tia/model.json");
+	</script>
     <div class="container">
         Copyright © 2018 氷咲 Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>.&nbsp;Theme by <a href="https://github.com/ZEROKISEKI" target="_blank">AONOSORA</a>
     </div>
