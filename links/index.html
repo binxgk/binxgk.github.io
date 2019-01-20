@@ -12,7 +12,7 @@
     
     
     
-    <title>search | 冰の森</title>
+    <title>友人の信 | 冰の森</title>
     <link href=”http://binxgk.coding.me“ rel=”prefetch” />
     <link rel="icon" type="image/x-icon" href="">
 
@@ -194,181 +194,46 @@
                 <div class="col-md-8 gal-right" id="mainstay">
                     <!-- 搜索页面(尽可能接近ZanBlog搜索功能) -->
 
-<!-- search自定义页面 -->
-<script type="text/javascript">
 
-	var htmlEntityMap = {
-		'&': '&amp;',
-		'<': '&lt;',
-		'>': '&gt;',
-		'"': '&quot;',
-		'\'': '&#39;',
-		'/': '&#x2F;'
-	};
+<article class="article well article-body" id="article">
+    <!-- 大型设备详细文章 -->
+    <div class="hidden-xs">
+        <div class="title-article">
+            <h1>
+                <a href="/links/index.html">友人の信</a>
+            </h1>
+        </div>
+        <div class="tag-article">
+            <span class="label label-gal">
+                <i class="fa fa-calendar"></i> 2018-09-16
+            </span>
+        </div>
+    </div>
+    <!-- 小型设备详细文章 -->
+    <div class="visible-xs">
+        <center>
+            <div class="title-article">
+                <h4>
+                    <a href="/links/index.html">友人の信</a>
+                </h4>
+            </div>
+            <p>
+                <i class="fa fa-calendar"></i> 2018-09-16
+            </p>
+        </center>
+    </div>
+    <div class="content-article">
+        <h3 id="dalaoのblog"><a href="#dalaoのblog" class="headerlink" title="dalaoのblog"></a>dalaoのblog</h3><blockquote>
+<p><a href="https://www.soimort.org/" target="_blank" rel="noopener">Soimort</a><br><a href="https://www.liaoxuefeng.com/" target="_blank" rel="noopener">廖雪峰</a></p>
+</blockquote>
+<h3 id="パートナー"><a href="#パートナー" class="headerlink" title="パートナー"></a>パートナー</h3><blockquote>
+<p><a href="https://2heng.xin/friends/" target="_blank" rel="noopener">樱花庄的白猫</a></p>
+</blockquote>
 
-	// 参照hexo过滤html的方法(事实上感觉静态也没什么可以过滤的)
-	function escapeKey(str) {
-		if (typeof str !== 'string') throw new TypeError('str must be a string!');
+    </div>
+</article>
 
-		// http://stackoverflow.com/a/12034334
-		return str.replace(/[&<>"'\/]/g, function(a) {
-			return htmlEntityMap[a];
-		});
-	}
 
-	var query = decodeURIComponent(window.location.search).substring(1).split('&')
-    // 获取搜索关键词
-    var s = escapeKey(query[0].split('=')[1])
-    // 获取当前页数
-    var p = query.length > 1 ? query[1].split('=')[1] : 1
-    // 获取每页的页码数
-    var pageSize = '10'
-    var useLeancloud = ''
-    $.getJSON('/content.json', function (json) {
-      $('#search-breadcrumb').append(`搜索'${s}'的结果`)
-      var result = getArticles(s, 'posts', json).concat(getArticles(s, 'pages', json))
-      if (result.length === 0 || result.length <= (p - 1) * pageSize) {
-      	// TODO 显示404页面
-      } else {
-        displaySearchResult(result.slice((p - 1) * pageSize, p * pageSize))
-        displayPagination(result)
-      }
-    })
-
-    function getArticles(val, type, json) {
-      return json[type].filter((e) => {
-        return e.title.indexOf(val) !== -1 || e.text.indexOf(val) !== -1
-      })
-    }
-
-    function displaySearchResult(result) {
-      var resultList = $('#article-list')
-      result.forEach(function (article) {
-      	var [month, day] = article.date.split('-')
-        ''
-        ''
-        var defaultPreview = '/imgs/preview/preview2.jpg'
-        var preview = article.preview ? article.preview : defaultPreview
-        var path = '/' + article.path
-        resultList.append(`<div class="article well clearfix article-body article-excerpt" data-aos="flip-up">
-                                <div class="data-article hidden-xs">
-                                    <span class="month">${month}月</span>
-                                    <span class="day">${day}</span>
-                                </div>
-                                <section class="hidden-xs">
-                                    <div class="title-article">
-                                        <h1>
-                                            <a href="${path}">
-                                                <span>${article.title}</span>
-                                            </a>
-                                        </h1>
-                                    </div>
-                                    <div class="tag-article">
-                                        ${ useLeancloud ? '<span class="label label-gal"><i class="fa fa-eye"></i></span>' : ''}
-                                        <span class="label label-gal">
-                                            <i class="fa fa-comments"></i>
-                                            <a href="${path}#comments">739</a>
-                                        </span>
-                                    </div>
-                                    <div class="alert alert-gal article-body content-article">
-                                         <div class="item">
-                                            <a href="${path}">
-                                                <div class="img">
-                                                    <img src="${preview}" alt="${article.title}">
-                                                </div>
-                                                <div class="info">
-                                                    <p>${article.excerpt}</p>
-                                                </div>
-                                            </a>
-                                         </div>
-					                </div>
-					            </section>
-                           </div>`)
-      })
-      if (useLeancloud) {
-        var Counter = AV.Object.extend('Counter')
-        showPostsTime(Counter)
-      }
-    }
-
-    function displayPagination(result) {
-      var pgContainer = $('#gal-pagination')
-      var pg = $(pgContainer.find('.pagination-gal')[0])
-      if(result.length > 0) {
-        pgContainer.css('display', 'block')
-      }
-      var num = Math.ceil(result.length / pageSize)
-      var root = '/search'
-      var link = root + `/index.html?s=${s}`
-      if(p > 1) {
-      	pg.append(`<li class="prev"><a href="${link}&page=${p-1}">«</a></li>`)
-      }
-      if(p > 7) {
-      	pg.append(`<li><a href="${link}">1</a></li>
-                   <li><span>...</span></li>`)
-        for(var i = p - 3; i < p; i++) {
-          pg.append(`<li><a href="${link}&page=${i}">${i}</a></li>`)
-        }
-      } else {
-      	for(var j = 1; j < p; j++) {
-          pg.append(`<li><a href="${link}${j === 1 ? '' : `&page=${j}`}">${j}</a></li>`)
-        }
-      }
-      pg.append(`<li class="current"><span>${p}</span></li>`)
-      if(p + 7 < num) {
-      	for(var i = p + 1; i <= p + 3; i++) {
-          pg.append(`<li><a href="${link}&page=${i}">${i}</a></li>`)
-        }
-        pg.append(`<li><span>...</span></li>`)
-      } else {
-      	for(var j = p + 1; j <= num; j++) {
-          pg.append(`<li><a href="${link}&page=${j}">${j}</a></li>`)
-        }
-      }
-      if(p < num) {
-      	pg.append(`<li class="next"><a href="${link}&page=${p+1}">»</a></li>`)
-      }
-    }
-
-    // 很挫地定义了多一次, 到时再改了...
-    function showPostsTime(Counter) {
-      var entries = []
-      var excerpts = $('.article-excerpt')
-      excerpts.each(function () {
-        entries.push($(this).find('.title-article').first().find('a').attr('href').trim())
-      })
-      var query = new AV.Query(Counter)
-      query.containedIn('url', entries)
-      query.find().then(function (result) {
-        excerpts.each(function () {
-          var href = $(this).find('.title-article').first().find('a').attr('href').trim()
-          var r = result.filter(function (e) {
-            return e.get('url') === href
-          })
-          if(r.length > 0) {
-            $(this).find('i.fa-eye').each(function () {
-              $(this).after(' ' + r[0].get('time') + ' ℃')
-            })
-          } else {
-            $(this).find('i.fa-eye').each(function () {
-              $(this).after(' 0 ℃')
-            })
-          }
-        })
-      }).then(function (error) {
-        console.log('Error:' + error.code + ' ' + error.message)
-      })
-    }
-
-</script>
-<div class="breadcrumb breadcrumb-gal" id="search-breadcrumb">
-    <i class="fa fa-home"></i>
-</div>
-<div id="article-list"></div>
-<div id="gal-pagination" class="clearfix" style="display: none;">
-    <ul class="pagination pagination-gal pull-right"></ul>
-</div>
-<!-- 404页面 -->
 
                 </div>
                 <aside class="col-md-4 gal-left" id="sidebar">
@@ -441,34 +306,19 @@
         <div class="panel panel-gal hidden-xs" data-aos="fade-up" data-aos-duration="2000">
             <ul class="nav nav-pills pills-gal">
                 <li class="">
-                    <a href="/search/index.html#sidebar-tags" data-toggle="tab" id="tags-tab">热门标签</a>
+                    <a href="/links/index.html#sidebar-tags" data-toggle="tab" id="tags-tab">人気のタグ</a>
                 </li>
                 <li class="">
-                    <a href="/search/index.html#sidebar-friend-links" data-toggle="tab" id="friend-links-tab">友情链接</a>
+                    <a href="/links/">友人の信</a>
                 </li>
                 <li class="">
-                    <a href="/search/index.html#sidebar-links" data-toggle="tab" id="links-tab">个人链接</a>
+                    <a href="/links/index.html#sidebar-links" data-toggle="tab" id="links-tab">個人リンク</a>
                 </li>
             </ul>
             <div class="tab-content">
                 <div class="cloud-tags tab-pane nav bs-sidenav fade" id="sidebar-tags">
     
-    <a href="/tags/初音ミク/" style="font-size: 9.264760831335934px;" class="tag-cloud-link">初音ミク</a>
-    
-</div>
-                <div class="friend-links tab-pane nav bs-sidenav fade" id="sidebar-friend-links">
-    
-    <li>
-        <a href="http://kdays.net/days/" target="_blank">KDays Forum</a>
-    </li>
-    
-    <li>
-        <a href="https://cangku.moe/" target="_blank">绅士仓库</a>
-    </li>
-    
-    <li>
-        <a href="http://www.moe123.com/" target="_blank">萌导航</a>
-    </li>
+    <a href="/tags/初音ミク/" style="font-size: 9.512633945396665px;" class="tag-cloud-link">初音ミク</a>
     
 </div>
                 <div class="links tab-pane nav bs-sidenav fade" id="sidebar-links">
