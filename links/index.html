@@ -177,6 +177,14 @@
                 
                 
                 
+                <li class="current">
+                    <a href="/links">
+                        <i class="fa fa-link"></i>友人帐
+                    </a>
+                </li>
+                
+                
+                
                 <li class="">
                     <a href="/about">
                         <i class="fa fa-user"></i>关于我
@@ -223,12 +231,97 @@
         </center>
     </div>
     <div class="content-article">
-        <h3 id="dalaoのblog"><a href="#dalaoのblog" class="headerlink" title="dalaoのblog"></a>dalaoのblog</h3><blockquote>
-<p><a href="https://www.soimort.org/" target="_blank" rel="noopener">Soimort</a><br><a href="https://www.liaoxuefeng.com/" target="_blank" rel="noopener">廖雪峰</a></p>
-</blockquote>
-<h3 id="パートナー"><a href="#パートナー" class="headerlink" title="パートナー"></a>パートナー</h3><blockquote>
-<p><a href="https://2heng.xin/friends/" target="_blank" rel="noopener">樱花庄的白猫</a></p>
-</blockquote>
+        
+<style>
+    #dalaoのblog {
+        width: 230px;
+        background-color: #ffccff;
+        color: white;
+        -webkit-animation: mymove 5s infinite; /* Chrome, Safari, Opera */
+        animation: mymove 5s infinite;
+    }
+
+    /* Chrome, Safari, Opera */
+    @-webkit-keyframes mymove {
+        50% {width: 500px;}
+    }
+
+    /* Standard syntax */
+    @keyframes mymove {
+        50% {width: 500px;}
+    }
+    .friends {
+      min-height: 400px;
+      padding: 20px 0;
+      user-select: none;
+    }
+    .friend {
+      width: 80%;
+      margin: 20px auto;
+      position: relative;
+      background-image: url('./1.jpeg');
+      background-size: cover;
+      background-repeat: no-repeat;
+      padding: 10px;
+    }
+    .friend::after {
+      content: '';
+      display: block;
+      clear: both;
+    }
+    .friend-avatar {
+      width: 70px;
+      height: 70px;
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-color: #fff;
+      border-radius: 50%;
+      float: left;
+    }
+    .friend-name {
+      margin-left: 90px;
+      font-size: 18px;
+      color: #24282d;
+    }
+    .friend-desc {
+      margin-left: 90px;
+      font-size: 14px;
+    }
+    .friend-link {
+      position: absolute;
+      width: 80%;
+      height: 100%;
+      top: 0;
+      left: 0;
+      text-decoration: none;
+      border: none !important;
+      cursor: pointer;
+    }
+</style>
+
+<body> 
+    <div id="dalaoのblog">
+      <h1>dalaoのblog</h1>
+    </div>
+    <div class="friend">
+      <div class="friend-avatar" style="background-image:url('https://wx4.sinaimg.cn/small/006bYVyvly1fyej5hsj2aj30dw0dwte6.jpg')"></div>
+      <div class="friend-name">Mashiro</div>
+      <div class="friend-desc">樱花庄的白猫</div>
+      <a class="friend-link" href="https://2heng.xin/" target="_blank" title="樱花庄的白猫"></a>
+    </div>
+    <div class="friend">
+      <div class="friend-avatar" style="background-image:url('https://kurumi.ink/images/tx.jpg')"></div>
+      <div class="friend-name">小爱莉</div>
+      <div class="friend-desc">エリーの萌化小屋</div>
+      <a class="friend-link" href="https://kurumi.ink/" target="_blank" title="小爱莉"></a>
+    </div>
+    <div class="friend">
+      <div class="friend-avatar" style="background-image:url('https://rua.kim/medias/logo.png')"></div>
+      <div class="friend-name">艾莉雅哒笔记</div>
+      <div class="friend-desc">一身→→正正正正←气</div>
+      <a class="friend-link" href="https://rua.kim/" target="_blank" title="艾莉雅哒笔记"></a>
+    </div>   
+</body>
 
     </div>
 </article>
@@ -318,7 +411,7 @@
             <div class="tab-content">
                 <div class="cloud-tags tab-pane nav bs-sidenav fade" id="sidebar-tags">
     
-    <a href="/tags/初音ミク/" style="font-size: 9.512633945396665px;" class="tag-cloud-link">初音ミク</a>
+    <a href="/tags/初音ミク/" style="font-size: 13.595751674960617px;" class="tag-cloud-link">初音ミク</a>
     
 </div>
                 <div class="links tab-pane nav bs-sidenav fade" id="sidebar-links">
