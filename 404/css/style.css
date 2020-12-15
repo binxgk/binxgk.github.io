@@ -360,7 +360,8 @@ background:transparent;
 	font-size: 16px;
 	width: 20%;
 	display: block;
-	border-radius: 25px;
+  border-radius: 25px;
+  margin:25px 1px
 }
 .box:hover {
   color:#fff;
